@@ -7,14 +7,17 @@ import { store } from './store';
 import { browserHistory, Router, Route, IndexRoute, IndexRedirect, Link, IndexLink } from 'react-router';
 import Routes from './routes';
 
-// import { Home } from './components';
+import { Home } from './components';
 
 class RootComponent extends Component {
   render() {
     return (
       <div>
         <Provider store={store}>
-          {Routes}
+          <Router history={browserHistory}>
+            <Route path="/" component={Home} />
+            {/*<IndexRedirect to="/home" />*/}
+          </Router>
 
         </Provider>
       </div>
